@@ -15,17 +15,25 @@ var (
 		<html>
 			<body>
 			<form method="POST">
-				<ul>
-				{{range .Flags}}
-					<li><label>
-						"{{.Name}}"
-						<input type="text" placeholder="{{.DefValue}}" name="{{.Name}}" value="{{.Value}}">
-						{{.Usage}}
-						</label>
-					</li>
-				{{end}}
-				</ul>
-				<input type="submit" value="Save">
+				<table>
+				<thead>
+					<th>Name</th><th>Value</th><th>Usage</th>
+				</thead>
+				<div>
+				<tbody>
+					{{range .Flags}}
+						<tr>
+							<td>{{.Name}}</td>
+							<td><input type="text" placeholder="{{.DefValue}}" name="{{.Name}}" value="{{.Value}}"></td>
+							<td>{{.Usage}}</td>
+						</tr>
+					{{end}}
+				</tbody>
+				</table>
+				</div>
+				<div>
+					<input type="submit" value="Save">
+				</div>
 			</form>
 			</body>
 		</html>
