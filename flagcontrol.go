@@ -11,7 +11,6 @@ type flagTemplateData struct {
 }
 
 var (
-	port                 = flag.String("flagcontrolport", "1024", "Port to run the server on")
 	displayFlagsTemplate = template.Must(template.New("displayFlagsTemplate").Parse(`
 		<html>
 			<body>
@@ -22,6 +21,7 @@ var (
 						"{{.Name}}"
 						<input type="text" placeholder="{{.DefValue}}" name="{{.Name}}" value="{{.Value}}">
 						{{.Usage}}
+						</label>
 					</li>
 				{{end}}
 				</ul>
