@@ -45,6 +45,8 @@ func Server(w http.ResponseWriter, r *http.Request) {
 		flag.VisitAll(func(f *flag.Flag) {
 			flag.Set(f.Name, r.FormValue(f.Name))
 		})
+		http.Redirect(w, r, r.URL.String(), 302)
+		return
 	}
 	var templateData flagTemplateData
 	flag.VisitAll(func(f *flag.Flag) {
